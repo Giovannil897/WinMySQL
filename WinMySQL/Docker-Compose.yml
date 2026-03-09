@@ -3,7 +3,7 @@ version: '3.8'
 services:
     mysql:
       image: mysql:8.0
-      command: x--bind-address 0.0.0.0
+      command: --bind-address 0.0.0.0
       container_name: mysql_server
       restart: always
       environment:

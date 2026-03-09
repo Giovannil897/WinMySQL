@@ -1,6 +1,6 @@
 ﻿namespace WinMySQL.Vistas
 {
-    partial class frmMaterias
+    partial class FrmProfesores
     {
         /// <summary>
         /// Required designer variable.
@@ -30,18 +30,18 @@
         {
             components = new System.ComponentModel.Container();
             splitContainer1 = new SplitContainer();
-            btnAgregarMateria = new Button();
+            btnAgregarProfesor = new Button();
             txtMaterias = new TextBox();
             label1 = new Label();
-            dgvMaterias = new DataGridView();
-            cmsData = new ContextMenuStrip(components);
+            dgvProfesores = new DataGridView();
+            cmsProfesor = new ContextMenuStrip(components);
             eliminarToolStripMenuItem = new ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)splitContainer1).BeginInit();
             splitContainer1.Panel1.SuspendLayout();
             splitContainer1.Panel2.SuspendLayout();
             splitContainer1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dgvMaterias).BeginInit();
-            cmsData.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvProfesores).BeginInit();
+            cmsProfesor.SuspendLayout();
             SuspendLayout();
             // 
             // splitContainer1
@@ -53,59 +53,58 @@
             // 
             // splitContainer1.Panel1
             // 
-            splitContainer1.Panel1.Controls.Add(btnAgregarMateria);
+            splitContainer1.Panel1.Controls.Add(btnAgregarProfesor);
             splitContainer1.Panel1.Controls.Add(txtMaterias);
             splitContainer1.Panel1.Controls.Add(label1);
             // 
             // splitContainer1.Panel2
             // 
-            splitContainer1.Panel2.Controls.Add(dgvMaterias);
+            splitContainer1.Panel2.Controls.Add(dgvProfesores);
             splitContainer1.Size = new Size(800, 450);
-            splitContainer1.SplitterDistance = 83;
+            splitContainer1.SplitterDistance = 94;
             splitContainer1.TabIndex = 0;
             // 
-            // btnAgregarMateria
+            // btnAgregarProfesor
             // 
-            btnAgregarMateria.Location = new Point(713, 27);
-            btnAgregarMateria.Name = "btnAgregarMateria";
-            btnAgregarMateria.Size = new Size(75, 23);
-            btnAgregarMateria.TabIndex = 2;
-            btnAgregarMateria.Text = "Agregar";
-            btnAgregarMateria.UseVisualStyleBackColor = true;
-            btnAgregarMateria.Click += btnAgregarMateria_Click;
+            btnAgregarProfesor.Location = new Point(713, 34);
+            btnAgregarProfesor.Name = "btnAgregarProfesor";
+            btnAgregarProfesor.Size = new Size(75, 23);
+            btnAgregarProfesor.TabIndex = 8;
+            btnAgregarProfesor.Text = "Agregar";
+            btnAgregarProfesor.UseVisualStyleBackColor = true;
+            btnAgregarProfesor.Click += btnAgregarProfesor_Click;
             // 
             // txtMaterias
             // 
-            txtMaterias.Location = new Point(12, 27);
+            txtMaterias.Location = new Point(12, 34);
             txtMaterias.Name = "txtMaterias";
             txtMaterias.Size = new Size(531, 23);
-            txtMaterias.TabIndex = 1;
+            txtMaterias.TabIndex = 7;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(12, 9);
+            label1.Location = new Point(12, 16);
             label1.Name = "label1";
             label1.Size = new Size(42, 15);
-            label1.TabIndex = 0;
+            label1.TabIndex = 6;
             label1.Text = "Buscar";
             // 
-            // dgvMaterias
+            // dgvProfesores
             // 
-            dgvMaterias.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvMaterias.ContextMenuStrip = cmsData;
-            dgvMaterias.Dock = DockStyle.Fill;
-            dgvMaterias.Location = new Point(0, 0);
-            dgvMaterias.Name = "dgvMaterias";
-            dgvMaterias.Size = new Size(800, 363);
-            dgvMaterias.TabIndex = 0;
-            dgvMaterias.CellContentDoubleClick += dgvMaterias_CellContentDoubleClick;
+            dgvProfesores.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvProfesores.Dock = DockStyle.Fill;
+            dgvProfesores.Location = new Point(0, 0);
+            dgvProfesores.Name = "dgvProfesores";
+            dgvProfesores.Size = new Size(800, 352);
+            dgvProfesores.TabIndex = 0;
+            dgvProfesores.CellContentDoubleClick += dgvProfesores_CellContentDoubleClick;
             // 
-            // cmsData
+            // cmsProfesor
             // 
-            cmsData.Items.AddRange(new ToolStripItem[] { eliminarToolStripMenuItem });
-            cmsData.Name = "cmsData";
-            cmsData.Size = new Size(118, 26);
+            cmsProfesor.Items.AddRange(new ToolStripItem[] { eliminarToolStripMenuItem });
+            cmsProfesor.Name = "contextMenuStrip1";
+            cmsProfesor.Size = new Size(118, 26);
             // 
             // eliminarToolStripMenuItem
             // 
@@ -114,34 +113,35 @@
             eliminarToolStripMenuItem.Text = "Eliminar";
             eliminarToolStripMenuItem.Click += eliminarToolStripMenuItem_Click;
             // 
-            // frmMaterias
+            // FrmProfesores
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            ContextMenuStrip = cmsProfesor;
             Controls.Add(splitContainer1);
-            Name = "frmMaterias";
-            Text = "Materias";
-            Activated += frmMaterias_Activated;
-            Load += frmMaterias_Load;
+            Name = "FrmProfesores";
+            Text = "FrmProfesores";
+            Activated += FrmProfesores_Activated;
+            Load += FrmProfesores_Load;
             splitContainer1.Panel1.ResumeLayout(false);
             splitContainer1.Panel1.PerformLayout();
             splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)splitContainer1).EndInit();
             splitContainer1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)dgvMaterias).EndInit();
-            cmsData.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)dgvProfesores).EndInit();
+            cmsProfesor.ResumeLayout(false);
             ResumeLayout(false);
         }
 
         #endregion
 
         private SplitContainer splitContainer1;
-        private Button btnAgregarMateria;
+        private DataGridView dgvProfesores;
+        private Button btnAgregarProfesor;
         private TextBox txtMaterias;
         private Label label1;
-        private DataGridView dgvMaterias;
-        private ContextMenuStrip cmsData;
+        private ContextMenuStrip cmsProfesor;
         private ToolStripMenuItem eliminarToolStripMenuItem;
     }
 }
