@@ -64,18 +64,21 @@
             alumnoToolStripMenuItem1.Name = "alumnoToolStripMenuItem1";
             alumnoToolStripMenuItem1.Size = new Size(180, 22);
             alumnoToolStripMenuItem1.Text = "Alumno";
+            alumnoToolStripMenuItem1.Click += alumnoToolStripMenuItem1_Click;
             // 
             // materiaToolStripMenuItem
             // 
             materiaToolStripMenuItem.Name = "materiaToolStripMenuItem";
             materiaToolStripMenuItem.Size = new Size(180, 22);
             materiaToolStripMenuItem.Text = "Materia";
+            materiaToolStripMenuItem.Click += materiaToolStripMenuItem_Click;
             // 
             // profesorToolStripMenuItem
             // 
             profesorToolStripMenuItem.Name = "profesorToolStripMenuItem";
             profesorToolStripMenuItem.Size = new Size(180, 22);
             profesorToolStripMenuItem.Text = "Profesor";
+            profesorToolStripMenuItem.Click += profesorToolStripMenuItem_Click;
             // 
             // FrmMenu
             // 
