@@ -1,4 +1,6 @@
-﻿using System;
+﻿
+using OfficeOpenXml;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,6 +15,8 @@ namespace WinMySQL.Vistas
     {
         Datos datos = new Datos();
         DataSet ds;
+        OpenFileDialog ofdExcel = new OpenFileDialog();
+
         public FrmAlumnos()
         {
             InitializeComponent();
@@ -72,7 +76,7 @@ namespace WinMySQL.Vistas
         private void eliminarToolStripMenuItem_Click(object sender, EventArgs e)
         {
             int idalumno = Convert.ToInt32(dgvAlumnos.CurrentRow.Cells[0].Value);
-            if (MessageBox.Show("Deseas eliminar al alumno: " + dgvAlumnos.CurrentRow.Cells[1].Value.ToString()+" "+ dgvAlumnos.CurrentRow.Cells[2].Value.ToString()+" "+ dgvAlumnos.CurrentRow.Cells[3].Value.ToString(),
+            if (MessageBox.Show("Deseas eliminar al alumno: " + dgvAlumnos.CurrentRow.Cells[1].Value.ToString() + " " + dgvAlumnos.CurrentRow.Cells[2].Value.ToString() + " " + dgvAlumnos.CurrentRow.Cells[3].Value.ToString(),
                 "sistema", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 bool f = datos.ejecutarcomando($"delete from Alumnos where IdAlumnos={idalumno}");
@@ -82,6 +86,39 @@ namespace WinMySQL.Vistas
                 }
                 else MessageBox.Show("error al eliminar al alumno", "Sistema");
             }
+        }
+
+        private void btnImportar_Click(object sender, EventArgs e)
+        {
+            string path;
+            DialogResult dr = ofdExcel.ShowDialog();
+            if (dr == DialogResult.OK)
+            {
+                path = ofdExcel.FileName;
+                ExcelPackage.License.SetNonCommercialPersonal("Giovanni");
+                using (ExcelPackage excel = new ExcelPackage(new FileInfo(path)))
+                {
+                    ExcelWorksheet ws = excel.Workbook.Worksheets[0];
+                    int rowCount = ws.Dimension.Rows;
+                    int columnn = ws.Dimension.Columns;
+                    DataTable dt = new DataTable();
+                    for (int col = 1; col <= columnn; col++)
+                    {
+                        dt.Columns.Add(ws.Cells[1, col].Value.ToString());
+                    }
+                    for (int row = 2; row <= rowCount; row++)
+                    {
+                        DataRow drnew = dt.NewRow();
+                        for (int col = 1; col <= columnn; col++)
+                        {
+                            drnew[col - 1] = ws.Cells[row, col].Value.ToString();
+                        }
+                        dt.Rows.Add(drnew);
+                        String comando;
+                    }
+                }
+            }
+
         }
     }
 }

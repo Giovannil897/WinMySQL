@@ -39,12 +39,14 @@
             txtArea = new TextBox();
             txtMaterias = new TextBox();
             btnAceptar = new Button();
+            label6 = new Label();
+            txtSegundo = new TextBox();
             SuspendLayout();
             // 
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(233, 82);
+            label5.Location = new Point(452, 82);
             label5.Name = "label5";
             label5.Size = new Size(115, 15);
             label5.TabIndex = 13;
@@ -53,7 +55,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(17, 82);
+            label4.Location = new Point(233, 82);
             label4.Name = "label4";
             label4.Size = new Size(87, 15);
             label4.TabIndex = 12;
@@ -62,7 +64,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(452, 20);
+            label3.Location = new Point(17, 82);
             label3.Name = "label3";
             label3.Size = new Size(99, 15);
             label3.TabIndex = 11;
@@ -71,7 +73,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(233, 20);
+            label2.Location = new Point(452, 21);
             label2.Name = "label2";
             label2.Size = new Size(95, 15);
             label2.TabIndex = 10;
@@ -95,28 +97,28 @@
             // 
             // txtPaterno
             // 
-            txtPaterno.Location = new Point(233, 39);
+            txtPaterno.Location = new Point(452, 39);
             txtPaterno.Name = "txtPaterno";
             txtPaterno.Size = new Size(175, 23);
             txtPaterno.TabIndex = 16;
             // 
             // txtMaterno
             // 
-            txtMaterno.Location = new Point(452, 39);
+            txtMaterno.Location = new Point(17, 100);
             txtMaterno.Name = "txtMaterno";
             txtMaterno.Size = new Size(175, 23);
             txtMaterno.TabIndex = 17;
             // 
             // txtArea
             // 
-            txtArea.Location = new Point(17, 100);
+            txtArea.Location = new Point(233, 100);
             txtArea.Name = "txtArea";
             txtArea.Size = new Size(175, 23);
             txtArea.TabIndex = 18;
             // 
             // txtMaterias
             // 
-            txtMaterias.Location = new Point(233, 100);
+            txtMaterias.Location = new Point(452, 100);
             txtMaterias.Name = "txtMaterias";
             txtMaterias.Size = new Size(175, 23);
             txtMaterias.TabIndex = 19;
@@ -131,11 +133,29 @@
             btnAceptar.UseVisualStyleBackColor = true;
             btnAceptar.Click += btnAceptar_Click;
             // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Location = new Point(233, 21);
+            label6.Name = "label6";
+            label6.Size = new Size(106, 15);
+            label6.TabIndex = 21;
+            label6.Text = "Segundo Nombre*";
+            // 
+            // txtSegundo
+            // 
+            txtSegundo.Location = new Point(233, 39);
+            txtSegundo.Name = "txtSegundo";
+            txtSegundo.Size = new Size(175, 23);
+            txtSegundo.TabIndex = 22;
+            // 
             // FrmProfesor
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(651, 185);
+            Controls.Add(txtSegundo);
+            Controls.Add(label6);
             Controls.Add(btnAceptar);
             Controls.Add(txtMaterias);
             Controls.Add(txtArea);
@@ -165,5 +185,7 @@
         private TextBox txtArea;
         private TextBox txtMaterias;
         private Button btnAceptar;
+        private Label label6;
+        private TextBox txtSegundo;
     }
 }

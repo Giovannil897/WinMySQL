@@ -41,6 +41,8 @@
             txtSemestre = new TextBox();
             txtCarrera = new TextBox();
             btnAceptar = new Button();
+            txtSegundo = new TextBox();
+            label7 = new Label();
             SuspendLayout();
             // 
             // label1
@@ -55,7 +57,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(235, 9);
+            label2.Location = new Point(454, 9);
             label2.Name = "label2";
             label2.Size = new Size(95, 15);
             label2.TabIndex = 1;
@@ -64,7 +66,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(454, 9);
+            label3.Location = new Point(19, 71);
             label3.Name = "label3";
             label3.Size = new Size(99, 15);
             label3.TabIndex = 2;
@@ -79,14 +81,14 @@
             // 
             // txtPaterno
             // 
-            txtPaterno.Location = new Point(235, 28);
+            txtPaterno.Location = new Point(454, 28);
             txtPaterno.Name = "txtPaterno";
             txtPaterno.Size = new Size(184, 23);
             txtPaterno.TabIndex = 4;
             // 
             // txtMaterno
             // 
-            txtMaterno.Location = new Point(454, 27);
+            txtMaterno.Location = new Point(19, 89);
             txtMaterno.Name = "txtMaterno";
             txtMaterno.Size = new Size(184, 23);
             txtMaterno.TabIndex = 5;
@@ -94,7 +96,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(19, 71);
+            label4.Location = new Point(19, 128);
             label4.Name = "label4";
             label4.Size = new Size(110, 15);
             label4.TabIndex = 6;
@@ -120,7 +122,7 @@
             // 
             // txtNumeroControl
             // 
-            txtNumeroControl.Location = new Point(19, 89);
+            txtNumeroControl.Location = new Point(19, 147);
             txtNumeroControl.Name = "txtNumeroControl";
             txtNumeroControl.Size = new Size(184, 23);
             txtNumeroControl.TabIndex = 9;
@@ -141,7 +143,7 @@
             // 
             // btnAceptar
             // 
-            btnAceptar.Location = new Point(290, 132);
+            btnAceptar.Location = new Point(514, 146);
             btnAceptar.Name = "btnAceptar";
             btnAceptar.Size = new Size(75, 23);
             btnAceptar.TabIndex = 12;
@@ -149,11 +151,29 @@
             btnAceptar.UseVisualStyleBackColor = true;
             btnAceptar.Click += btnAceptar_Click;
             // 
+            // txtSegundo
+            // 
+            txtSegundo.Location = new Point(235, 28);
+            txtSegundo.Name = "txtSegundo";
+            txtSegundo.Size = new Size(184, 23);
+            txtSegundo.TabIndex = 13;
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Location = new Point(235, 9);
+            label7.Name = "label7";
+            label7.Size = new Size(106, 15);
+            label7.TabIndex = 14;
+            label7.Text = "Segundo Nombre*";
+            // 
             // FrmAlumno
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(662, 181);
+            Controls.Add(label7);
+            Controls.Add(txtSegundo);
             Controls.Add(btnAceptar);
             Controls.Add(txtCarrera);
             Controls.Add(txtSemestre);
@@ -168,7 +188,7 @@
             Controls.Add(label2);
             Controls.Add(label1);
             Name = "FrmAlumno";
-            Text = "FrmAlumno";
+            Text = "Alumno";
             ResumeLayout(false);
             PerformLayout();
         }
@@ -188,5 +208,7 @@
         private TextBox txtSemestre;
         private TextBox txtCarrera;
         private Button btnAceptar;
+        private TextBox txtSegundo;
+        private Label label7;
     }
 }

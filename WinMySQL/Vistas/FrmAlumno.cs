@@ -37,8 +37,8 @@ namespace WinMySQL.Vistas
             if (updating == false)
             {
                 bool resultado = datos.ejecutarcomando(
-                    $"Insert into Alumnos (Nombre,ApellidoPat,ApellidoMat,NumeroControl,Semestre,Carrera) " +
-                    $"values ('{txtNombre.Text}','{txtPaterno.Text}','{txtMaterno.Text}',{txtNumeroControl.Text},{txtSemestre.Text},'{txtCarrera.Text}')");
+                    $"Insert into Alumnos (Nombre,SegundoNombre,ApellidoPat,ApellidoMat,NumeroControl,Semestre,Carrera) " +
+                    $"values ('{txtNombre.Text}','{txtSegundo.Text}','{txtPaterno.Text}','{txtMaterno.Text}',{txtNumeroControl.Text},{txtSemestre.Text},'{txtCarrera.Text}')");
 
                 if (resultado)
                 {
@@ -52,7 +52,7 @@ namespace WinMySQL.Vistas
             }
             else
             {
-                bool resultado = datos.ejecutarcomando($"Update Alumnos set Nombre='{txtNombre.Text}', ApellidoPat='{txtPaterno.Text}', " +
+                bool resultado = datos.ejecutarcomando($"Update Alumnos set Nombre='{txtNombre.Text}', SegundoNombre='{txtSegundo.Text}', ApellidoPat='{txtPaterno.Text}', " +
                     $"ApellidoMat='{txtMaterno.Text}', NumeroControl={txtNumeroControl.Text}, " +
                     $"Semestre={txtSemestre.Text}, Carrera='{txtCarrera.Text}' " +
                     $"where IdAlumnos={id}");
