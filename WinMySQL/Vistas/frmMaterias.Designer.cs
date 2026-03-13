@@ -80,6 +80,7 @@
             txtMaterias.Name = "txtMaterias";
             txtMaterias.Size = new Size(531, 23);
             txtMaterias.TabIndex = 1;
+            txtMaterias.KeyUp += txtMaterias_KeyUp;
             // 
             // label1
             // 

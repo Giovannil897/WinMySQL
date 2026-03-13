@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO.Packaging;
 using System.Text;
 using System.Windows.Forms;
 using WinMySQL.Clases;
@@ -95,30 +96,60 @@ namespace WinMySQL.Vistas
             if (dr == DialogResult.OK)
             {
                 path = ofdExcel.FileName;
-                ExcelPackage.License.SetNonCommercialPersonal("Giovanni");
-                using (ExcelPackage excel = new ExcelPackage(new FileInfo(path)))
+
+                ExcelPackage.License.SetNonCommercialPersonal("Giovanni"); //Libreria para uso no comercial
+                using (var package = new ExcelPackage(new FileInfo(path)))
                 {
-                    ExcelWorksheet ws = excel.Workbook.Worksheets[0];
-                    int rowCount = ws.Dimension.Rows;
-                    int columnn = ws.Dimension.Columns;
+                    ExcelWorksheet worksheet = package.Workbook.Worksheets[0];
+                    int rowCount = worksheet.Dimension.Rows;
+                    int columnCount = worksheet.Dimension.Columns;
                     DataTable dt = new DataTable();
-                    for (int col = 1; col <= columnn; col++)
+                    for (int i = 0; i < columnCount; i++)
                     {
-                        dt.Columns.Add(ws.Cells[1, col].Value.ToString());
+                        dt.Columns.Add(worksheet.Cells[1, i + 1].Value.ToString());
                     }
-                    for (int row = 2; row <= rowCount; row++)
+                    for (int i = 2; i <= rowCount; i++)
                     {
-                        DataRow drnew = dt.NewRow();
-                        for (int col = 1; col <= columnn; col++)
+                        DataRow drNew = dt.NewRow();
+                        for (int col = 1; col <= columnCount; col++)
                         {
-                            drnew[col - 1] = ws.Cells[row, col].Value.ToString();
+                            if (worksheet.Cells[i, col].Value == null)
+                            {
+                                drNew[col - 1] = "";
+                                continue;
+                            }
+                            else
+                            {
+                                try
+                                {
+                                    drNew[col - 1] = worksheet.Cells[i, col].Value.ToString();
+                                }
+                                catch (Exception ex)
+                                {
+                                    drNew[col - 1] = worksheet.Cells[i, col].Value;
+                                }
+                            }
                         }
-                        dt.Rows.Add(drnew);
-                        String comando;
+                        dt.Rows.Add(drNew);
+                        string comando = $"Insert into Alumnos(Nombre, SegundoNombre, ApellidoPat, ApellidoMat, NumeroControl, Semestre, Carrera)" +
+                            $" values('{drNew[0]}', '{drNew[1]}', '{drNew[2]}', '{drNew[3]}', {drNew[4]} , {drNew[5]} , '{drNew[6]}')";
+                        datos.ejecutarcomando(comando);
                     }
                 }
             }
 
+        }
+        private void txtMaterias_TextChanged(object sender, EventArgs e)
+        {
+            Busqueda();
+        } 
+        private void Busqueda()
+        {
+            ds = datos.ejecutar($"Select * from Alumnos where Nombre like ('%{txtAlumnos.Text}%')");
+            if (ds != null)
+            {
+                dgvAlumnos.DataSource = ds.Tables[0];
+            }
         }
     }
 }
