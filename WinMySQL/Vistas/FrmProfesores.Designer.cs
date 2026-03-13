@@ -121,7 +121,7 @@
             ContextMenuStrip = cmsProfesor;
             Controls.Add(splitContainer1);
             Name = "FrmProfesores";
-            Text = "FrmProfesores";
+            Text = "Profesores";
             Activated += FrmProfesores_Activated;
             Load += FrmProfesores_Load;
             splitContainer1.Panel1.ResumeLayout(false);
